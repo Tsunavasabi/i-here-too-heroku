@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { faCaretSquareDown } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -15,7 +15,12 @@ export class DashboardComponent implements OnInit {
   pageSize = 24
   collectionSize
   publish: any
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient) { 
+    if (JSON.parse(localStorage.getItem('logout')) == true) {
+      router.navigateByUrl('/')
+      localStorage.setItem('logout' , JSON.stringify(false))
+    }
+  }
 
   ngOnInit(): void {
     let data = JSON.parse(localStorage.getItem('user'))._id

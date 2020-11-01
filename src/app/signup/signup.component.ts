@@ -15,7 +15,12 @@ export class SignupComponent implements OnInit {
   email: string
   conpassword: string
 
-  constructor(private http: HttpClient, private router: Router, private modalService: NgbModal) { }
+  constructor(private http: HttpClient, private router: Router, private modalService: NgbModal) { 
+    if (JSON.parse(localStorage.getItem('logout')) == true) {
+      router.navigateByUrl('/')
+      localStorage.setItem('logout' , JSON.stringify(false))
+    }
+  }
 
   ngOnInit(): void {
   }

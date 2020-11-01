@@ -8,8 +8,8 @@
             <div class="card" style="background: #AAAAAA;">
               <img src="../../assets/prayut.jpg" class="card-img-top">
               <div class="card-body">
-                <h5 class="card-title">{{you.title}}</h5>
-                <p class="card-text" [innerHTML]="you.body | slice:0:100"></p>
+                <h5 class="card-title">{{you.title | slice:0:50}}...</h5>
+                <p class="card-text" [innerHTML]="you.body | slice:0:30"></p>
               </div>
               <div class="card-footer"><a routerLink="/read/{{you._id}}" style="color: #555555; font-size: xx-small;">Continue Reading..</a></div>
             </div>
@@ -115,8 +115,8 @@
             <div class="card" style="background: #AAAAAA;">
               <img src="../../assets/prayut.jpg" class="card-img-top">
               <div class="card-body">
-                <h5 class="card-title">{{latest.title}}</h5>
-                <p class="card-text" [innerHTML]="latest.body | slice:0:100"></p>
+                <h5 class="card-title">{{latest.title | slice:0:50}}...</h5>
+                <p class="card-text" [innerHTML]="latest.body | slice:0:30"></p>
               </div>
               <div class="card-footer"><a routerLink="/read/{{latest._id}}" style="color: #555555; font-size: xx-small;">Continue Reading..</a></div>
             </div>
@@ -135,8 +135,8 @@
                       </div>
                       <div class="col-md-8">
                         <div class="card-body">
-                          <h5 class="card-title">{{thailand.title}}</h5>
-                          <p class="card-text" style="color: black;" [innerHTML]="thailand.body | slice:0:200"></p>
+                          <h5 class="card-title">{{thailand.title | slice:0:50}}...</h5>
+                          <p class="card-text" style="color: black;" [innerHTML]="thailand.body | slice:0:30"></p>
                           <a routerLink="/read/{{thailand._id}}" style="float: right; font-size: smaller; color: #555555;">Continue Reading...</a>
                         </div>
                       </div>

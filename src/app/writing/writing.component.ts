@@ -106,7 +106,7 @@ export class WritingComponent implements OnInit {
   }
 
   reverse() {
-    let rev = this.detail.split('</br></br>').join('\n\n')
+    let rev = this.detail.split('</br></br>').join('\n')
     this.detail = rev
   }
 

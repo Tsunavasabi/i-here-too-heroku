@@ -12,7 +12,12 @@ import * as moment from 'moment';
 export class DraftComponent implements OnInit {
   faCaretSquareDown = faCaretSquareDown
   draft: any
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient) { 
+    if (JSON.parse(localStorage.getItem('logout')) == true) {
+      router.navigateByUrl('/')
+      localStorage.setItem('logout' , JSON.stringify(false))
+    }
+  }
 
   ngOnInit(): void {
     let data = JSON.parse(localStorage.getItem('user'))._id

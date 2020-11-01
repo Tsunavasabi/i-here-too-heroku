@@ -12,8 +12,8 @@
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title">{{new.title}}</h5>
-                    <p class="card-text" style="color: black;" [innerHTML]="new.body | slice:0:150"></p>
+                    <h5 class="card-title">{{new.title | slice:0:50}}...</h5>
+                    <p class="card-text" style="color: black;" [innerHTML]="new.body | slice:0:30"></p>
                     <a routerLink="/read/{{new._id}}" style="float: right; font-size: smaller; color: #555555;">Continue Reading...</a>
                   </div>
                 </div>

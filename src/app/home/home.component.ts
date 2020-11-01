@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { createTrue } from 'typescript';
 
 
 @Component({
@@ -20,7 +19,13 @@ export class HomeComponent implements OnInit {
   news4 : any; news5: any
   user = null; have = false; list = true
 
+
   constructor(private http: HttpClient, private router: Router) {
+    if (JSON.parse(localStorage.getItem('logout')) == true) {
+      router.navigateByUrl('/')
+      localStorage.setItem('logout' , JSON.stringify(false))
+    }
+    
     if (JSON.parse(localStorage.getItem('user')) != null) {
       this.have = true
       this.user = JSON.parse(localStorage.getItem('user')).name

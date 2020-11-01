@@ -23,8 +23,11 @@ export class LoginComponent implements OnInit {
     this.http.post<any>('https://iheretootest.herokuapp.com/member/login', payload).subscribe(result => {
       console.log(result)
       localStorage.setItem('user', JSON.stringify(result))
-      if (result)
+      if (result.msg == 'email or password is incorrect') {
+        alert(result.msg)
+      } else {
         this.router.navigateByUrl('/')
+      }
     })
   }
 

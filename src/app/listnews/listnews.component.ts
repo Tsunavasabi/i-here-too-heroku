@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-listnews',
@@ -12,7 +12,12 @@ export class ListnewsComponent implements OnInit {
   news = null
   popular : any
   list = true
-  constructor(private http: HttpClient, private router: ActivatedRoute) { 
+  constructor(private http: HttpClient, private router: ActivatedRoute,
+    private route: Router) { 
+    if (JSON.parse(localStorage.getItem('logout')) == true) {
+      route.navigateByUrl('/')
+      localStorage.setItem('logout' , JSON.stringify(false))
+    }
     this.getTag()
   }
 
