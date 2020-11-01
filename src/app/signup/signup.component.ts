@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
     let payload = {email: this.email, 
       password: this.password,
       name: this.username,
-      tags: tags
+      favetags: tags
       }
     this.http.post<any>('https://iheretootest.herokuapp.com/api/members/register', payload).subscribe(result => {
           this.router.navigateByUrl('/home');
@@ -48,6 +48,7 @@ export class SignupComponent implements OnInit {
       }
       tags.push(tag_list)
       }
+      console.log(tags)
       this.signup(tags)
     })
   }

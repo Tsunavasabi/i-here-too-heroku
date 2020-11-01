@@ -17,7 +17,8 @@
         </div>
     </div>
     <br><br>
-    <div style="background: #555555;" *ngIf="user != null">
+    <div style="background: #555555;" *ngIf="user != null && news1.length != 0 &&
+    news2.length != 0 && news3.length != 0 && news4.length != 0 && news5.length != 0">
       <div class="container"><br><br>
         <h2 style="color: white;" *ngIf="about1 != undefined && news1.length != 0"><b>News about {{about1}}</b>&nbsp;&nbsp;
         <a routerLink="/list/{{about1}}" class="text-white" style="font-size: x-small;">read more...</a></h2>

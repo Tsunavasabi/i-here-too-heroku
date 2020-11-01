@@ -20,21 +20,35 @@ export class ReadComponent implements OnInit {
 
   ngOnInit(): void {
     this.getNews()
-    this.Addview()
     console.log(window.history.state)
   }
 
   getNews() {
     let id = this.router.snapshot.paramMap.get('id');
-    this.http.get<any>('https://iheretootest.herokuapp.com/api/blogs/read/blogid='+id)
-    .subscribe(result => {
-      console.log(result)
-      this.title = result.title
-      this.detail = result.body
-      this.tags = result.tags
-      this.name = result.author
-      this.updatedAt = moment(result.updatedAt).format('DD MMM YYYY')
-    })
+    if (id == 'trending_1') {
+      this.http.get<any>('https://iheretootest.herokuapp.com/api/blogs/read/trending_1')
+      .subscribe(result => {
+        this.title = result[0].title
+        this.detail = result[0].body
+        this.tags = result[0].tags
+        this.name = result[0].author
+        this.id = result[0]._id
+        this.updatedAt = moment(result.updatedAt).format('DD MMM YYYY')
+        this.Addview()
+      })
+    } else {
+      this.http.get<any>('https://iheretootest.herokuapp.com/api/blogs/read/blogid='+id)
+      .subscribe(result => {
+        console.log(result)
+        this.title = result[0].title
+        this.detail = result[0].body
+        this.tags = result[0].tags
+        this.name = result[0].author
+        this.id = result[0]._id
+        this.updatedAt = moment(result.updatedAt).format('DD MMM YYYY')
+        this.Addview()
+      })
+    }
   }
 
   Addview() {
@@ -43,8 +57,11 @@ export class ReadComponent implements OnInit {
             blogid: this.router.snapshot.paramMap.get('id'),
             memberid: JSON.parse(localStorage.getItem('user'))._id
           }
+          console.log(this.id)
+          if (view.blogid == "trending_1") {
+            view.blogid = this.id
+          }
           console.log(view)
-
           this.http.put<any>('https://iheretootest.herokuapp.com/api/blogs/addviews', view)
           .subscribe(() => {
             console.log('add view!') 
@@ -52,6 +69,10 @@ export class ReadComponent implements OnInit {
     } else {
       let view = {
         blogid: this.router.snapshot.paramMap.get('id')
+      }
+      console.log(this.id)
+      if (view.blogid == "trending_1") {
+        view.blogid = this.id
       }
       console.log(view)
       this.http.put<any>('https://iheretootest.herokuapp.com/api/blogs/addviews', view)
