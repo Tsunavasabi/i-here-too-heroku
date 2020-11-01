@@ -1,0 +1,25 @@
+
+<div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add tag</h4>
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+</div>
+<div class="modal-body">
+      <form>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="your tag...." aria-label="Recipient's username" aria-describedby="basic-addon2"
+          name="tag" [(ngModel)]="tag">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button"
+            (click)="addtag()">add</button>
+          </div>
+        </div>
+      </form>
+      <div *ngFor="let tags of all_tag" style="display: inline-block;">
+        <button type="button" class="btn btn-light btn-sm" style="margin-top: 10%;">{{tags}}</button>&nbsp;&nbsp;
+      </div>
+</div>
+<div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="save()">Save</button>
+</div>

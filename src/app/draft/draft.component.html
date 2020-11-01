@@ -1,0 +1,46 @@
+<app-navbar></app-navbar><br><br><br>
+<div class="container">
+    <h1><b>Dashboard</b>&nbsp;&nbsp;
+        <div class="btn-group" role="group" aria-label="Basic example" style="float: inline-end;">
+            <button type="button" class="btn btn-outline-secondary btn-sm" (click)="gopublish()">Published</button>
+            <button type="button" class="btn btn-secondary btn-sm">Draft</button>
+        </div>
+    </h1>
+    
+    <br><br>
+    <table class="table table-hover" style="font-size: small;">
+        <thead class="table-secondary">
+          <tr>
+            <th scope="col">TITLE</th>
+            <th scope="col">CREATED DATE</th>
+            <th scope="col">ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dft of draft">
+            <td>{{dft.title}}</td>
+            <td>{{dft.createdAt}}</td>
+            <td>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" (click)="edit(dft)">Edit</a>
+                      <a class="dropdown-item" (click)="delete(dft)">Delete</a>
+                    </div>
+                  </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <nav aria-label="...">
+        <ul class="pagination pagination-sm justify-content-end">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+</div><br><br>
+<app-footer></app-footer>

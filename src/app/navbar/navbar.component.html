@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand text-white" href="#">I HERE TOO</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link text-white" routerLink="/list/science" routerLinkActive="active">Science <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" routerLink="/list/economics" routerLinkActive="active">Economics</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/list/politics" routerLinkActive="active">Politics</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/list/entertainment" routerLinkActive="active">Entertainment</a>
+            </li>
+
+          </ul>
+          <span class="navbar-text text-white" *ngIf="user == undefined">
+            <fa-icon [icon]="faUser" style="color: white;"></fa-icon>&nbsp;&nbsp;&nbsp;
+            <a routerLink="/login" class="text-white">Login</a>/<a routerLink="/signup" class="text-white">Sign up</a>
+          </span>
+          <span class="navbar-text text-white" *ngIf="user != undefined">
+            <div class="dropdown">
+              <fa-icon [icon]="faUser" style="color: white;"></fa-icon>
+              <button class="btn dropdown-toggle" type="button" style="color: white;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{user.name}}
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" *ngIf="user.isWriter == true" routerLink="/dashboard">My Blogs</a>
+                <a class="dropdown-item" *ngIf="user.isWriter == true" routerLink="/write">New Blogs</a>
+                <a class="dropdown-item" (click)="Logout()">Logout</a>
+              </div>
+          </div>
+          </span>
+        </div>
+    </div>
+</nav>

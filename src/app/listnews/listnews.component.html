@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<app-slideshow></app-slideshow>
+<br><br><br>
+<div class="container">
+    <h2>{{topic}}</h2><br><hr><br>
+    <div class="row" *ngIf="news != null">
+        <div class="col-7">
+          <div class="card mb-4" *ngFor="let new of news">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img src="../../assets/Thailand Highlight/1.png" class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{new.title}}</h5>
+                    <p class="card-text" style="color: black;" [innerHTML]="new.body | slice:0:150"></p>
+                    <a routerLink="/read/{{new._id}}" style="float: right; font-size: smaller; color: #555555;">Continue Reading...</a>
+                  </div>
+                </div>
+              </div>
+          </div> 
+        </div>
+        <div class="col-5">
+          <div class="card mw-100" style="background: #E2E2E2;">
+            <div class="card-body mw-100">
+                <h5 class="card-title">Popular Tag</h5>
+                <div *ngFor="let tag of popular" style="display: inline-block;">
+                  <a routerLink="/list/{{tag}}"><button type="button" class="btn btn-light">{{tag}}</button>&nbsp;&nbsp;</a>
+                </div>
+            </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="row" *ngIf="news == null">
+        <div class="col mw-100">
+          No Result, Please select other tag <br><br>
+          <div class="mw-100">
+            <div class="card mw-100" style="background: #E2E2E2;">
+                <div class="card-body mw-100">
+                    <h5 class="card-title">Popular Tag</h5>
+                    <div *ngFor="let tag of popular" style="display: inline-block;">
+                      <a routerLink="/list/{{tag}}"><button type="button" class="btn btn-light">{{tag}}</button>&nbsp;&nbsp;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      </div>
+</div><br><br><br>
+
+<app-footer></app-footer>

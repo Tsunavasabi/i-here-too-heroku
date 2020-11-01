@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <br><br>
+    <form>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-11">
+            <div class="form-group">
+              <input type="text" class="form-control border-0" [(ngModel)]="title" name="title"
+              placeholder="Title" style="font-size: xx-large;">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-1">
+            <div class="dropdown">
+              <button class="btn" type="button btn-sm" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <fa-icon [icon]="faPlusCircle"></fa-icon>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <button class="dropdown-item btn btn-light">
+                  <fa-icon [icon]="faImage"></fa-icon> add cover</button>
+              </div>
+          </div>
+          </div>
+          <div class="col-11">
+            <div class="form-group">
+              <textarea type="text" class="form-control border-0" [(ngModel)]="detail" name="detail"
+              placeholder="write your content here.." rows="50"></textarea>
+            </div>
+          </div>
+        </div>
+    </form>
+    <br><br><br><br>
+</div>
+<div class="fixed-bottom shadow-lg p-3 bg-white rounded">
+    <div class="container">
+        <a (click)="open()" style="color: #818181;">add tag</a>
+        <button *ngIf="editing == 0" class="btn btn-secondary float-right rounded-pill border-0" style="background: #4d4d4d;" (click)="replace_pub()">Publish</button>
+        <button *ngIf="editing == 0" class="btn btn-secondary float-right rounded-pill mr-3 border-0" style="background: #b6b6b6;" (click)="replace_dft()">Save as a draft</button>
+        <button *ngIf="editing != 0" class="btn btn-secondary float-right rounded-pill border-0" style="background: #4d4d4d;" (click)="update()">Save</button>
+        <br>
+    </div>
+</div>
