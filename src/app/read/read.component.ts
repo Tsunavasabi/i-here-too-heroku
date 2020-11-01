@@ -16,7 +16,7 @@ export class ReadComponent implements OnInit {
   updatedAt: any
   id : any
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private router: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.getNews()
@@ -25,7 +25,7 @@ export class ReadComponent implements OnInit {
   }
 
   getNews() {
-    let id = this.route.snapshot.paramMap.get('id');
+    let id = this.router.snapshot.paramMap.get('id');
     this.http.get<any>('https://iheretootest.herokuapp.com/api/blogs/read/blogid='+id)
     .subscribe(result => {
       console.log(result)
@@ -33,27 +33,27 @@ export class ReadComponent implements OnInit {
       this.detail = result.body
       this.tags = result.tags
       this.name = result.author
-      this.id = result._id
       this.updatedAt = moment(result.updatedAt).format('DD MMM YYYY')
     })
   }
 
   Addview() {
     if (JSON.parse(localStorage.getItem('user')) != undefined) {
-      console.log('login')
           let view = {
-            blogid: this.id, memberid: JSON.parse(localStorage.getItem('user'))._id
+            blogid: this.router.snapshot.paramMap.get('id'),
+            memberid: JSON.parse(localStorage.getItem('user'))._id
           }
+          console.log(view)
 
           this.http.put<any>('https://iheretootest.herokuapp.com/api/blogs/addviews', view)
           .subscribe(() => {
-            console.log('add view!')
-          })
+            console.log('add view!') 
+          }) 
     } else {
-      console.log('not login')
       let view = {
-        blogid: this.id
+        blogid: this.router.snapshot.paramMap.get('id')
       }
+      console.log(view)
       this.http.put<any>('https://iheretootest.herokuapp.com/api/blogs/addviews', view)
       .subscribe(() => {
         console.log('add view!')
