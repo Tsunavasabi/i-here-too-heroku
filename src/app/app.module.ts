@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
+import { FacebookModule } from 'ngx-facebook';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,7 +45,8 @@ import { TagModalComponent } from './tag-modal/tag-modal.component';
     NgbModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FacebookModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

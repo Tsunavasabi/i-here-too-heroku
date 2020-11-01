@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FacebookService, InitParams } from 'ngx-facebook';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'I-hear-too';
+  title = 'I-here-too';
+
+  constructor(private facebookService: FacebookService) {
+    this.initFacebookService();
+  }
+
+  private initFacebookService(): void {
+    const initParams: InitParams = { xfbml: true, version: 'v3.2' };
+    this.facebookService.init(initParams);
+}
 }

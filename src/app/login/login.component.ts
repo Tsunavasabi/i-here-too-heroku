@@ -23,7 +23,8 @@ export class LoginComponent implements OnInit {
     this.http.post<any>('https://iheretootest.herokuapp.com/member/login', payload).subscribe(result => {
       console.log(result)
       localStorage.setItem('user', JSON.stringify(result))
-      this.router.navigateByUrl('/')
+      if (result)
+        this.router.navigateByUrl('/')
     })
   }
 
