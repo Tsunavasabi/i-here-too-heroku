@@ -54,12 +54,8 @@ export class ReadComponent implements OnInit {
   Addview() {
     if (JSON.parse(localStorage.getItem('user')) != undefined) {
           let view = {
-            blogid: this.router.snapshot.paramMap.get('id'),
+            blogid: this.id,
             memberid: JSON.parse(localStorage.getItem('user'))._id
-          }
-          console.log(this.id)
-          if (view.blogid == "trending_1") {
-            view.blogid = this.id
           }
           console.log(view)
           this.http.put<any>('https://iheretootest.herokuapp.com/api/blogs/addviews', view)
@@ -68,11 +64,7 @@ export class ReadComponent implements OnInit {
           }) 
     } else {
       let view = {
-        blogid: this.router.snapshot.paramMap.get('id')
-      }
-      console.log(this.id)
-      if (view.blogid == "trending_1") {
-        view.blogid = this.id
+        blogid: this.id
       }
       console.log(view)
       this.http.put<any>('https://iheretootest.herokuapp.com/api/blogs/addviews', view)
