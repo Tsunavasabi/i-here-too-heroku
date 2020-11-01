@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-tag-modal',
@@ -12,6 +13,7 @@ export class TagModalComponent implements OnInit {
   closeResult = '';
   tag: string = ''
   all_tag = []
+  faTimes = faTimes
   @Output() passEntry: EventEmitter<any> = new EventEmitter();
 
   constructor(public activeModal: NgbActiveModal) { }
@@ -30,6 +32,12 @@ export class TagModalComponent implements OnInit {
   save() {
     this.passEntry.emit(this.all_tag);
     this.activeModal.dismiss()
+  }
+
+  deletetag(i) {
+    console.log(i)
+    this.all_tag.splice(i, 1)
+    console.log(this.all_tag)
   }
 
 }

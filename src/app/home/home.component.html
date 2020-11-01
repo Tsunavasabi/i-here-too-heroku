@@ -4,103 +4,103 @@
     <br><br><br>
     <h2><b>News for You</b></h2><br><hr><br>
         <div class="row">
-          <div class="col-3" *ngFor="let you of news_for_you">
-            <div class="card" style="background: #AAAAAA;">
+          <div class="col mb-4" *ngFor="let you of news_for_you">
+            <div class="card mb-4" style="background: #AAAAAA;">
               <img src="../../assets/prayut.jpg" class="card-img-top">
               <div class="card-body">
                 <h5 class="card-title">{{you.title | slice:0:50}}...</h5>
                 <p class="card-text" [innerHTML]="you.body | slice:0:30"></p>
               </div>
-              <div class="card-footer"><a routerLink="/read/{{you._id}}" style="color: #555555; font-size: xx-small;">Continue Reading..</a></div>
+              <div class="card-footer"><a routerLink="/read/{{you._id}}" style="color: #555555; font-size: small;">Continue Reading..</a></div>
             </div>
           </div>
         </div>
     </div>
     <br><br>
-    <div style="background: #555555;" *ngIf="user != null && news1.length != 0 &&
-    news2.length != 0 && news3.length != 0 && news4.length != 0 && news5.length != 0">
+    <div style="background: #555555;" *ngIf="news1.length != 0 || news2.length != 0 ||
+     news3.length != 0 || news4.length != 0 || news5.length != 0">
       <div class="container"><br><br>
         <h2 style="color: white;" *ngIf="about1 != undefined && news1.length != 0"><b>News about {{about1}}</b>&nbsp;&nbsp;
-        <a routerLink="/list/{{about1}}" class="text-white" style="font-size: x-small;">read more...</a></h2>
+        <a routerLink="/list/{{about1}}" class="text-white" style="font-size: small;">read more...</a></h2>
         <br>
         <div class="row" *ngIf="about1 != undefined && news1.length != 0">
-          <div class="col-3" *ngFor="let new1 of news1">
-            <div class="card" style="background: #555555; border-color: #6d6d6d;">
+          <div class="col mb-4" *ngFor="let new1 of news1 | slice:0:4">
+            <div class="card mb-4" style="background: #555555; border-color: #6d6d6d;">
               <img src="../../assets/prayut.jpg" class="card-img-top">
               <div class="card-body">
-                <h5 class="card-title text-white">{{new1.title}}</h5>
+                <h5 class="card-title text-white">{{new1.title | slice:0:50}}..</h5>
                 <p class="card-text" [innerHTML]="new1.body | slice:0:20"></p>
               </div>
               <div class="card-footer" style="border-color: #555555; background-color: #555555;">
-                <a routerLink="/read/{{new1._id}}" style="color: white; font-size: x-small;">Continue Reading..</a></div>
+                <a routerLink="/read/{{new1._id}}" style="color: white; font-size: small;">Continue Reading..</a></div>
             </div>
           </div>
         </div><br><br>
 
         <h2 style="color: white;" *ngIf="about2 != undefined && news2.length != 0"><b>News about {{about2}}</b>&nbsp;&nbsp;
-        <a routerLink="/list/{{about2}}" class="text-white" style="font-size: x-small;">read more...</a></h2>
+        <a routerLink="/list/{{about2}}" class="text-white" style="font-size: small;">read more...</a></h2>
         <br>
         <div class="row" *ngIf="about2 != undefined && news2.length != 0">
-          <div class="col-3" *ngFor="let new2 of news2">
-            <div class="card" style="background: #555555; border-color: #6d6d6d;">
+          <div class="col mb-4" *ngFor="let new2 of news2 | slice:0:4">
+            <div class="card mb-4" style="background: #555555; border-color: #6d6d6d;">
               <img src="../../assets/prayut.jpg" class="card-img-top">
               <div class="card-body">
-                <h5 class="card-title text-white">{{new2.title}}</h5>
+                <h5 class="card-title text-white">{{new2.title | slice:0:50}}..</h5>
                 <p class="card-text" [innerHTML]="new2.body | slice:0:20"></p>
               </div>
               <div class="card-footer" style="border-color: #555555; background-color: #555555;">
-                <a routerLink="/read/{{new2._id}}" style="color: white; font-size: x-small;">Continue Reading..</a></div>
+                <a routerLink="/read/{{new2._id}}" style="color: white; font-size: small;">Continue Reading..</a></div>
             </div>
           </div>
         </div><br><br>
 
         <h2 style="color: white;" *ngIf="about3 != undefined && news3.length != 0"><b>News about {{about3}}</b>&nbsp;&nbsp;
-        <a routerLink="/list/{{about3}}" class="text-white" style="font-size: x-small;">read more...</a></h2>
+        <a routerLink="/list/{{about3}}" class="text-white" style="font-size: small;">read more...</a></h2>
         <br>
         <div class="row" *ngIf="about3 != undefined && news3.length != 0">
-          <div class="col-3" *ngFor="let new3 of news3">
-            <div class="card" style="background: #555555; border-color: #6d6d6d;">
+          <div class="col mb-4" *ngFor="let new3 of news3 | slice:0:4">
+            <div class="card mb-4" style="background: #555555; border-color: #6d6d6d;">
               <img src="../../assets/prayut.jpg" class="card-img-top">
               <div class="card-body">
-                <h5 class="card-title text-white">{{new3.title}}</h5>
+                <h5 class="card-title text-white">{{new3.title | slice:0:50}}..</h5>
                 <p class="card-text" [innerHTML]="new3.body | slice:0:20"></p>
               </div>
               <div class="card-footer" style="border-color: #555555; background-color: #555555;">
-                <a routerLink="/read/{{new3._id}}" style="color: white; font-size: x-small;">Continue Reading..</a></div>
+                <a routerLink="/read/{{new3._id}}" style="color: white; font-size: small;">Continue Reading..</a></div>
             </div>
           </div>
         </div><br><br>
 
         <h2 style="color: white;" *ngIf="about4 != undefined && news4.length != 0"><b>News about {{about4}}</b>&nbsp;&nbsp;
-          <a routerLink="/list/{{about4}}" class="text-white" style="font-size: x-small;">read more...</a></h2>
-          <br>
+          <a routerLink="/list/{{about4}}" class="text-white" style="font-size: small;">read more...</a></h2>
+          <br> 
         <div class="row" *ngIf="about4 != undefined && news4.length != 0">
-          <div class="col-3" *ngFor="let new4 of news4">
-            <div class="card" style="background: #555555; border-color: #6d6d6d;">
+          <div class="col mb-4" *ngFor="let new4 of news4 | slice:0:4">
+            <div class="card mb-4" style="background: #555555; border-color: #6d6d6d;">
               <img src="../../assets/prayut.jpg" class="card-img-top">
               <div class="card-body">
-                <h5 class="card-title text-white">{{new4.title}}</h5>
+                <h5 class="card-title text-white">{{new4.title | slice:0:50}}..</h5>
                 <p class="card-text" [innerHTML]="new4.body | slice:0:20"></p>
               </div>
               <div class="card-footer" style="border-color: #555555; background-color: #555555;">
-                <a routerLink="/read/{{new4._id}}" style="color: white; font-size: x-small;">Continue Reading..</a></div>
+                <a routerLink="/read/{{new4._id}}" style="color: white; font-size: small;">Continue Reading..</a></div>
             </div>
           </div>
         </div><br><br>
 
         <h2 style="color: white;" *ngIf="about5 != undefined && news5.length != 0"><b>News about {{about5}}</b>&nbsp;&nbsp;
-          <a routerLink="/list/{{about5}}" class="text-white" style="font-size: x-small;">read more...</a></h2>
+          <a routerLink="/list/{{about5}}" class="text-white" style="font-size: small;">read more...</a></h2>
           <br>
         <div class="row" *ngIf="about5 != undefined && news5.length != 0">
-          <div class="col-3" *ngFor="let new5 of news5">
-            <div class="card" style="background: #555555; border-color: #6d6d6d;">
+          <div class="col mb-4" *ngFor="let new5 of news5 | slice:0:4">
+            <div class="card mb-4" style="background: #555555; border-color: #6d6d6d;">
               <img src="../../assets/prayut.jpg" class="card-img-top">
               <div class="card-body">
-                <h5 class="card-title text-white">{{new5.title}}</h5>
+                <h5 class="card-title text-white">{{new5.title | slice:0:50}}..</h5>
                 <p class="card-text" [innerHTML]="new5.body | slice:0:20"></p>
               </div>
               <div class="card-footer" style="border-color: #555555; background-color: #555555;">
-                <a routerLink="/read/{{new5._id}}" style="color: white; font-size: x-small;">Continue Reading..</a></div>
+                <a routerLink="/read/{{new5._id}}" style="color: white; font-size: small;">Continue Reading..</a></div>
             </div>
           </div>
         </div><br><br>
@@ -111,14 +111,14 @@
       <div><br><br>
         <h2><b>Latest News</b></h2><br><hr><br>
         <div class="row">
-          <div class="col-3" *ngFor="let latest of latests">
-            <div class="card" style="background: #AAAAAA;">
+          <div class="col mb-4" *ngFor="let latest of latests">
+            <div class="card mb-4" style="background: #AAAAAA;">
               <img src="../../assets/prayut.jpg" class="card-img-top">
               <div class="card-body">
                 <h5 class="card-title">{{latest.title | slice:0:50}}...</h5>
                 <p class="card-text" [innerHTML]="latest.body | slice:0:30"></p>
               </div>
-              <div class="card-footer"><a routerLink="/read/{{latest._id}}" style="color: #555555; font-size: xx-small;">Continue Reading..</a></div>
+              <div class="card-footer"><a routerLink="/read/{{latest._id}}" style="color: #555555; font-size: small;">Continue Reading..</a></div>
             </div>
           </div>
         </div><br>
@@ -137,7 +137,7 @@
                         <div class="card-body">
                           <h5 class="card-title">{{thailand.title | slice:0:50}}...</h5>
                           <p class="card-text" style="color: black;" [innerHTML]="thailand.body | slice:0:30"></p>
-                          <a routerLink="/read/{{thailand._id}}" style="float: right; font-size: smaller; color: #555555;">Continue Reading...</a>
+                          <a routerLink="/read/{{thailand._id}}" style="float: right; font-size: small; color: #555555;">Continue Reading...</a>
                         </div>
                       </div>
                     </div>

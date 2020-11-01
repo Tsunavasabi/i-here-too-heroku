@@ -16,8 +16,9 @@
           </div>
         </div>
       </form>
-      <div *ngFor="let tags of all_tag" style="display: inline-block;">
-        <button type="button" class="btn btn-light btn-sm" style="margin-top: 10%;">{{tags}}</button>&nbsp;&nbsp;
+      <div *ngFor="let tags of all_tag ; let i = index" style="display: inline-block;">
+        <button type="button" class="btn btn-light btn-sm" style="margin-top: 10%;" (click)="deletetag(i)">
+          {{tags}} <fa-icon [icon]="faTimes"></fa-icon></button>&nbsp;&nbsp;
       </div>
 </div>
 <div class="modal-footer">
