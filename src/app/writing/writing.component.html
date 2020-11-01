@@ -38,7 +38,8 @@
         <a (click)="open()" style="color: #818181;">add tag</a>
         <button *ngIf="editing == 0" class="btn btn-secondary float-right rounded-pill border-0" style="background: #4d4d4d;" (click)="replace_pub()">Publish</button>
         <button *ngIf="editing == 0" class="btn btn-secondary float-right rounded-pill mr-3 border-0" style="background: #b6b6b6;" (click)="replace_dft()">Save as a draft</button>
-        <button *ngIf="editing != 0" class="btn btn-secondary float-right rounded-pill border-0" style="background: #4d4d4d;" (click)="update()">Save</button>
+        <button *ngIf="editing != 0" class="btn btn-secondary float-right rounded-pill border-0" style="background: #4d4d4d;" (click)="replace_pub1()">Publish</button>
+        <button *ngIf="editing != 0" class="btn btn-secondary float-right rounded-pill mr-3 border-0" style="background: #b6b6b6;" (click)="replace_dft1()">Save as a draft</button>
         <br>
     </div>
 </div>

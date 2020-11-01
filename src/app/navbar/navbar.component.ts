@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,7 @@ export class NavbarComponent implements OnInit {
   faUser = faUser;
   user: any
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user'))
@@ -20,6 +21,7 @@ export class NavbarComponent implements OnInit {
   Logout() {
     localStorage.removeItem('user')
     location.reload()
+    this.router.navigateByUrl('/')
   }
 
 }

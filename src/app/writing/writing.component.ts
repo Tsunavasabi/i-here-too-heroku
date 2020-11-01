@@ -95,26 +95,45 @@ export class WritingComponent implements OnInit {
     this.draft()
   }
 
+  replace_pub1() {
+    this.detail = this.detail.replace(/\n/g, "</br></br>");
+    this.update('pub')
+  }
+
+  replace_dft1() {
+    this.detail = this.detail.replace(/\n/g, "</br></br>");
+    this.update('dft')
+  }
+
   reverse() {
     let rev = this.detail.split('</br></br>').join('\n\n')
     this.detail = rev
   }
 
-  update() {
-    this.detail = this.detail.replace(/\n/g, "</br></br>");
+  update(stat) {
     let writedata = {
       id: this.editing._id,
       title: this.title,
       body: this.detail,
       tags: this.all_tag,
+      ispublished: true
     }
+    if (stat == 'dft') {
+      writedata.ispublished = false
+    } 
+    
     console.log(writedata)
     if (writedata.tags == undefined) {
         alert("Please add tags")
     } else {
         this.http.put<any>('https://iheretootest.herokuapp.com/api/blogs/editblog', writedata).subscribe(result => {
         console.log(result)
-        this.router.navigateByUrl('/draft');
+        if (stat == 'dft') {
+          this.router.navigateByUrl('/draft');
+        } else if (stat == 'pub') {
+          this.router.navigateByUrl('/dashboard');
+        }
+        
       })
     }
   }
