@@ -11,6 +11,7 @@ export class ListnewsComponent implements OnInit {
   topic: string
   news = null
   popular : any
+  list = true
   constructor(private http: HttpClient, private router: ActivatedRoute) { 
     this.getTag()
   }
@@ -18,6 +19,7 @@ export class ListnewsComponent implements OnInit {
   ngOnInit(): void {
     this.getTag()
     this.getPopular()
+    this.list = false
   }
 
   getTag() {

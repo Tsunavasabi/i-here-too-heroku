@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   about5: string; news1: any
   news2 : any; news3: any
   news4 : any; news5: any
-  user = null; have = false
+  user = null; have = false; list = true
 
   constructor(private http: HttpClient, private router: Router) {
     if (JSON.parse(localStorage.getItem('user')) != null) {

@@ -15,12 +15,12 @@ export class ReadComponent implements OnInit {
   name: string
   updatedAt: any
   id : any
+  list = true
 
   constructor(private router: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.getNews()
-    console.log(window.history.state)
   }
 
   getNews() {
@@ -40,11 +40,11 @@ export class ReadComponent implements OnInit {
       this.http.get<any>('https://iheretootest.herokuapp.com/api/blogs/read/blogid='+id)
       .subscribe(result => {
         console.log(result)
-        this.title = result[0].title
-        this.detail = result[0].body
-        this.tags = result[0].tags
-        this.name = result[0].author
-        this.id = result[0]._id
+        this.title = result.title
+        this.detail = result.body
+        this.tags = result.tags
+        this.name = result.author
+        this.id = result._id
         this.updatedAt = moment(result.updatedAt).format('DD MMM YYYY')
         this.Addview()
       })

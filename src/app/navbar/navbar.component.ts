@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -7,7 +7,8 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  faUser = faUser
+  @Input() list : boolean;
+  faUser = faUser;
   user: any
 
   constructor() { }
