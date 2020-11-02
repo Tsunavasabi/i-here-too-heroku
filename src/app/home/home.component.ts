@@ -14,9 +14,9 @@ export class HomeComponent implements OnInit {
   news_for_you: any
   about1: string; about2: string
   about3: string; about4: string
-  about5: string; news1: any
-  news2 : any; news3: any
-  news4 : any; news5: any
+  about5: string; news1 = []
+  news2 = []; news3 = []
+  news4 = []; news5 = []
   user = null; have = false; list = true
 
 
@@ -77,18 +77,18 @@ export class HomeComponent implements OnInit {
   }
 
   getAbout(tag, order) {
-    this.http.get('https://iheretootest.herokuapp.com/api/blogs/news-about/tag='+tag).subscribe(result => {
+    this.http.get<any>('https://iheretootest.herokuapp.com/api/blogs/news-about/tag='+tag).subscribe(result => {
       console.log(result)
-      if (order == 1) {
-        this.news1 = result
-      } else if (order == 2) {
-        this.news2 = result
-      } else if (order == 3) {
-        this.news3 = result
-      } else if (order == 4) {
-        this.news4 = result
-      } else if (order == 5) {
-        this.news5 = result
+      if (order == 1 && result.length > 0) {
+        this.news1.push(result)
+      } else if (order == 2 && result.length > 0) {
+        this.news2.push(result)
+      } else if (order == 3 && result.length > 0) {
+        this.news3.push(result)
+      } else if (order == 4 && result.length > 0) {
+        this.news4.push(result)
+      } else if (order == 5 && result.length > 0) {
+        this.news5.push(result)
       } 
     })
   }

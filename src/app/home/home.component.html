@@ -17,14 +17,13 @@
         </div>
     </div>
     <br><br>
-    <div style="background: #555555;" *ngIf="news1.length != 0 || news2.length != 0 ||
-     news3.length != 0 || news4.length != 0 || news5.length != 0">
+    <div style="background: #555555;" *ngIf="user != null">
       <div class="container"><br><br>
-        <h2 style="color: white;" *ngIf="about1 != undefined && news1.length != 0"><b>News about {{about1}}</b>&nbsp;&nbsp;
+        <h2 style="color: white;" *ngIf="news1.length > 0"><b>News about {{about1}}</b>&nbsp;&nbsp;
         <a routerLink="/list/{{about1}}" class="text-white" style="font-size: small;">read more...</a></h2>
         <br>
-        <div class="row" *ngIf="about1 != undefined && news1.length != 0">
-          <div class="col mb-4" *ngFor="let new1 of news1 | slice:0:4">
+        <div class="row" *ngIf="news1.length > 0">
+          <div class="col mb-4" *ngFor="let new1 of news1[0] | slice:0:4">
             <div class="card mb-4" style="background: #555555; border-color: #6d6d6d;">
               <img src="../../assets/prayut.jpg" class="card-img-top">
               <div class="card-body">
@@ -37,11 +36,11 @@
           </div>
         </div><br><br>
 
-        <h2 style="color: white;" *ngIf="about2 != undefined && news2.length != 0"><b>News about {{about2}}</b>&nbsp;&nbsp;
+        <h2 style="color: white;" *ngIf="news2.length > 0"><b>News about {{about2}}</b>&nbsp;&nbsp;
         <a routerLink="/list/{{about2}}" class="text-white" style="font-size: small;">read more...</a></h2>
         <br>
-        <div class="row" *ngIf="about2 != undefined && news2.length != 0">
-          <div class="col mb-4" *ngFor="let new2 of news2 | slice:0:4">
+        <div class="row" *ngIf="news2.length > 0">
+          <div class="col mb-4" *ngFor="let new2 of news2[0] | slice:0:4">
             <div class="card mb-4" style="background: #555555; border-color: #6d6d6d;">
               <img src="../../assets/prayut.jpg" class="card-img-top">
               <div class="card-body">
@@ -54,11 +53,11 @@
           </div>
         </div><br><br>
 
-        <h2 style="color: white;" *ngIf="about3 != undefined && news3.length != 0"><b>News about {{about3}}</b>&nbsp;&nbsp;
+        <h2 style="color: white;" *ngIf="news3.length > 0"><b>News about {{about3}}</b>&nbsp;&nbsp;
         <a routerLink="/list/{{about3}}" class="text-white" style="font-size: small;">read more...</a></h2>
         <br>
-        <div class="row" *ngIf="about3 != undefined && news3.length != 0">
-          <div class="col mb-4" *ngFor="let new3 of news3 | slice:0:4">
+        <div class="row" *ngIf="news3.length > 0">
+          <div class="col mb-4" *ngFor="let new3 of news3[0] | slice:0:4">
             <div class="card mb-4" style="background: #555555; border-color: #6d6d6d;">
               <img src="../../assets/prayut.jpg" class="card-img-top">
               <div class="card-body">
@@ -71,11 +70,11 @@
           </div>
         </div><br><br>
 
-        <h2 style="color: white;" *ngIf="about4 != undefined && news4.length != 0"><b>News about {{about4}}</b>&nbsp;&nbsp;
+        <h2 style="color: white;" *ngIf="news4.length > 0"><b>News about {{about4}}</b>&nbsp;&nbsp;
           <a routerLink="/list/{{about4}}" class="text-white" style="font-size: small;">read more...</a></h2>
           <br> 
-        <div class="row" *ngIf="about4 != undefined && news4.length != 0">
-          <div class="col mb-4" *ngFor="let new4 of news4 | slice:0:4">
+        <div class="row" *ngIf="news4.length > 0">
+          <div class="col mb-4" *ngFor="let new4 of news4[0] | slice:0:4">
             <div class="card mb-4" style="background: #555555; border-color: #6d6d6d;">
               <img src="../../assets/prayut.jpg" class="card-img-top">
               <div class="card-body">
@@ -88,11 +87,11 @@
           </div>
         </div><br><br>
 
-        <h2 style="color: white;" *ngIf="about5 != undefined && news5.length != 0"><b>News about {{about5}}</b>&nbsp;&nbsp;
+        <h2 style="color: white;" *ngIf="news5.length > 0"><b>News about {{about5}}</b>&nbsp;&nbsp;
           <a routerLink="/list/{{about5}}" class="text-white" style="font-size: small;">read more...</a></h2>
           <br>
-        <div class="row" *ngIf="about5 != undefined && news5.length != 0">
-          <div class="col mb-4" *ngFor="let new5 of news5 | slice:0:4">
+        <div class="row" *ngIf="news5.length > 0">
+          <div class="col mb-4" *ngFor="let new5 of news5[0] | slice:0:4">
             <div class="card mb-4" style="background: #555555; border-color: #6d6d6d;">
               <img src="../../assets/prayut.jpg" class="card-img-top">
               <div class="card-body">
